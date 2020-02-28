@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="sec.css">
+    <title>Sport</title>
+</head>
+<body>
+            <section class="section wb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-list clearfix" id="flow1">
+
+                                <script>
+                                    function owl1() {
+                                        var xmlhttp = new XMLHttpRequest();
+                                        xmlhttp.onreadystatechange = function() {
+                                            if (this.readyState == 4 && this.status == 200) {
+                                                var myObj = JSON.parse(this.responseText);
+                                
+                                                var ttl = "",
+                                                    url = "",
+                                                    des = "",
+                                                    imgurl = "";
+                                                    aut= "";
+                                
+                                                var str, i;
+                                                for (var i in myObj.articles) {
+                                                    if (i <= 6) {
+                                                    url = myObj.articles[i].url;
+                                                    ttl = myObj.articles[i].title;
+                                                    des = myObj.articles[i].description;
+                                                    imgurl = myObj.articles[i].urlToImage;
+                                                    aut= myObj.articles[i].author;
+                                                     str= '<div class="blog-box row"><div class="col-md-4"><div class="post-media"><a href="#" title=""><img src="'+ imgurl +'" alt="" class="img-fluid"><div class="hovereffect"></div></a></div></div><div class="blog-meta big-meta col-md-8"><h4><a href="'+ url +'" title="">'+ ttl +'</a></h4><p>'+ des +'</p><small><a href="blog-category-01.html" title="">Business</a></small><small><a href="single.html" title="">Feb 28, 2020</a></small><small><a href="blog-author.html" title="">'+ aut +'</a></small></div> </div><hr class="invis">'
+                                                    document.getElementById("flow1").innerHTML += str;
+                                                    }
+                                                }
+                                            }
+                                        };
+                                        xmlhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=in&category=sport&apiKey=89dc14a0f40f4974856a11e1b6fb2575", true);
+                                        xmlhttp.send();
+    
+                                    }
+                                    owl1();
+                                </script>
+
+</div>
+</div>
+                        <hr class="invis">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-start">
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+                            <div class="widget">
+                                <h2 class="widget-title">Search</h2>
+                                <form class="form-inline search-form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search on the site">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div><!-- end widget -->
+
+                            <div class="widget">
+                                <h2 class="widget-title">Recent Posts</h2>
+                                <div class="blog-list-widget">
+                                    <div class="list-group">
+                                        <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="w-100 justify-content-between">
+                                                <img src="upload/blog_square_01.jpg" alt="" class="img-fluid float-left">
+                                                <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
+                                                <small>12 Jan, 2016</small>
+                                            </div>
+                                        </a>
+
+                                        <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="w-100 justify-content-between">
+                                                <img src="upload/blog_square_02.jpg" alt="" class="img-fluid float-left">
+                                                <h5 class="mb-1">Let's make an introduction for creative life</h5>
+                                                <small>11 Jan, 2016</small>
+                                            </div>
+                                        </a>
+
+                                        <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="w-100 last-item justify-content-between">
+                                                <img src="upload/blog_square_03.jpg" alt="" class="img-fluid float-left">
+                                                <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
+                                                <small>07 Jan, 2016</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div><!-- end blog-list -->
+                            </div><!-- end widget -->
+
+                            <div class="widget">
+                                <h2 class="widget-title">Advertising</h2>
+                                <div class="banner-spot clearfix">
+                                    <div class="banner-img">
+                                        <img src="upload/banner_03.jpg" alt="" class="img-fluid">
+                                    </div><!-- end banner-img -->
+                                </div><!-- end banner -->
+                            </div><!-- end widget -->
+
+                            <div class="widget">
+                                <h2 class="widget-title">Instagram Feed</h2>
+                                <div class="instagram-wrapper clearfix">
+                                    <a class="" href="#"><img src="upload/insta_01.jpeg" alt="" class="img-fluid"></a>
+                                    <a href="#"><img src="upload/insta_02.jpeg" alt="" class="img-fluid"></a>
+                                    <a href="#"><img src="upload/insta_03.jpeg" alt="" class="img-fluid"></a>
+                                    <a href="#"><img src="upload/insta_04.jpeg" alt="" class="img-fluid"></a>
+                                    <a href="#"><img src="upload/insta_05.jpeg" alt="" class="img-fluid"></a>
+                                    <a href="#"><img src="upload/insta_06.jpeg" alt="" class="img-fluid"></a>
+                                    <a href="#"><img src="upload/insta_07.jpeg" alt="" class="img-fluid"></a>
+                                    <a href="#"><img src="upload/insta_08.jpeg" alt="" class="img-fluid"></a>
+                                    <a href="#"><img src="upload/insta_09.jpeg" alt="" class="img-fluid"></a>
+                                </div><!-- end Instagram wrapper -->
+                            </div><!-- end widget -->
+
+                            <div class="widget">
+                                <h2 class="widget-title">Popular Categories</h2>
+                                <div class="link-widget">
+                                    <ul>
+                                        <li><a href="#">Fahsion <span>(21)</span></a></li>
+                                        <li><a href="#">Lifestyle <span>(15)</span></a></li>
+                                        <li><a href="#">Art & Design <span>(31)</span></a></li>
+                                        <li><a href="#">Health Beauty <span>(22)</span></a></li>
+                                        <li><a href="#">Clothing <span>(66)</span></a></li>
+                                        <li><a href="#">Entertaintment <span>(11)</span></a></li>
+                                        <li><a href="#">Food & Drink <span>(87)</span></a></li>
+                                    </ul>
+                                </div><!-- end link-widget -->
+                            </div><!-- end widget -->
+                        </div><!-- end sidebar -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+</body>
+</html>

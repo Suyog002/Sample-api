@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- <link rel="import" href="index.html"> -->
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <form>
+            <input type="text" placeholder="Type something..." id="myInput">
+            <button type="button" onclick="getInputValue();">Get Value</button>
+            </form>
+    </section>
+    <section>
+        <div class="search mt-100">
+        <div class="main_title2">
+            <h2>Search Result</h2>
+            <div id="loi">
+        </div>
+        </div>
+        </div>
+
+        <script>
+
+        </script>
+    </section>
+   
+   <script>
+              window.favori = sessionStorage.getItem('favoriteMovie');
+alert(favori);
+        async function getInputValue() {
+              // Selecting the input element and get its value 
+              alert(favori);
+            window.favori= gyi;
+  const URL = `https://newsapi.org/v2/everything?q=${gyi}&apiKey=f069b2caf2d14283a9fefe8dcd7c7bf4`;
+  try {
+    const fetchResult = fetch(URL)
+    const response = await fetchResult;
+    const jsonData = await response.json();
+    console.log(jsonData);
+
+    var ttl = "",
+	url = "",
+	des = "",
+	imgurl = "";
+		
+	var str, i=0;
+		for (var i in jsonData.articles)
+ {
+       
+	url = jsonData.articles[i].url;
+	ttl = jsonData.articles[i].title;
+	des = jsonData.articles[i].description;
+	imgurl = jsonData.articles[i].urlToImage;
+	str = '<div class="col-lg-3 col-md-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl + '" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url + '" target="_blank">Gadgets</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 24, 2020</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div></div>'
+		
+	document.getElementById("loi").innerHTML +=  str;	
+ }							
+  } catch(e){
+    throw Error(e);
+  }
+}
+        
+
+</script>
+
+    <!-- <script>
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            var inputVal = document.getElementById("myInput").value;
+            
+            // Displaying the value
+            alert(inputVal);
+        }    
+            
+        </script>             -->
+ // Notice the incorrect spelling
+<!-- <script src="flow.js"></script> -->
+    
+</body>
+</html>

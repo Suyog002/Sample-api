@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<title>Complete Bootstrap 4 Website Layout</title>
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+				<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+				<!-- <script src="https://use.fontawesome.com/releases/v5.0.7/css/all.css"></script> -->
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+				<link href="style.css" rel="stylesheet">
+				<link rel="stylesheet" href="st3.css">
+	
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">Newzcasters</a>
+			<!-- <img src="img/logo.png"> -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="sec1.html">Business</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="sec5.html">Sports</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="sect3.html">Technology</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="sec2.html">Sceince</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="sec4.html">Entertainment</a>
+						</li>
+							<div class="row" id="displayNews">
+								<form class="form-inline my-2 my-lg-0">
+									<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search9">
+									<button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit-btn" onclick="getInputValue();"  >Search
+								</button>
+							</form>
+							<script>
+								
+						</script>
+						</div>
+					</div>	
+				</ul>
+			</div>
+	</div>
+</nav>
+
+<!--- Image Slider -->
+<!-- <div id="slides" class="carousel slided" data-ride="carousel"></div> -->
+<!-- <section id="carous-el" class="mt-5 mb-5">
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+</section> -->
+
+<section>
+	<div id="yiu">
+	</div>
+</section>
+
+<!--- Jumbotron -->
+<section class="choice_area p_100">
+	<div class="container">
+		<div class="main_title2">
+			<h2>Top Headlines</h2>
+			</div>
+			<div id="third" class="row choice_inner">
+					<script>
+						function buzzfeed() {
+
+							var xmlhttp = new XMLHttpRequest();
+							xmlhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+									var myObj = JSON.parse(this.responseText);
+				
+									var ttl = "",
+										url = "",
+										des = "",
+										imgurl = "";
+				
+									var str, i=0;
+				
+									for (var i in myObj.articles) {
+										if (i <= 3) {
+										url = myObj.articles[i].url;
+										ttl = myObj.articles[i].title;
+										des = myObj.articles[i].description;
+										imgurl = myObj.articles[i].urlToImage;
+										
+										str = '<div class="col-lg-3 col-md-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl + '" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url + '" target="_blank">Headlines</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 24, 2020</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div></div>'
+				
+										document.getElementById("third").innerHTML += str;	
+										}
+										
+									}
+									//document.getElementById("title").innerHTML = ttl;
+									// document.getElementById("description").innerHTML = des;
+									// document.getElementById("author").innerHTML = auth;
+								}
+					
+							};
+							xmlhttp.open("GET", "http://newsapi.org/v2/everything?q=Indianexpress.com&apiKey=f069b2caf2d14283a9fefe8dcd7c7bf4", true);
+							xmlhttp.send(); 
+							//  https://newsapi.org/v1/articles?source=cnn&apiKey=df5e29a8f4094ad389e4073f1f04c4a2
+						}
+						buzzfeed();
+					</script>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Preview Section-->
+
+ <!--================News Area =================-->
+
+ <section class="news_area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="main_title2">
+					<h2>Latest News</h2>
+				</div>
+				<div class="latest_news">
+					<div id="rit"></div>
+					<script>
+						function webym() {
+	
+							var xmlhttp = new XMLHttpRequest();
+							xmlhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+									var myObj = JSON.parse(this.responseText);
+				
+									var ttl = "",
+										url = "",
+										des = "",
+										imgurl = "";
+				
+									var str, i;
+				
+									for (var i in myObj.articles) {
+										if (i <= 3) {
+										url = myObj.articles[i].url;
+										ttl = myObj.articles[i].title;
+										des = myObj.articles[i].description;
+										imgurl = myObj.articles[i].urlToImage;
+				
+										// str = '<div class="col-lg-3 col-md-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl + '" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url + '" target="_blank">Gadgets</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 24, 2020</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p>'+ des +'</p></div></div></div>'
+					
+										str=' <div class="media"><div class="d-flex"><img class="img-fluid" src="'+ imgurl +'" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"></div><div class="media-body"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url +'" target="_blank">General</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div></div>'
+										document.getElementById("rit").innerHTML += str;
+				
+										}
+				
+									}
+				
+								}
+							};
+							xmlhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=89dc14a0f40f4974856a11e1b6fb2575", true);
+							xmlhttp.send();
+				
+						}
+				
+						webym();
+					</script>
+				</div>
+
+		<div class="tavel_food mt-100">
+					<div class="main_title2">
+						<h2>Science & Frictional news</h2>
+					</div>
+					   <div class="row">
+						   <div class="col-lg-6">
+							   <div class="row choice_small_inner" id="first">
+							   </div>
+						   </div>
+								<div class="col-lg-6" id="seco">
+								
+								
+<script>
+	
+	function verge() {
+
+
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var myObj = JSON.parse(this.responseText);
+
+				var ttl = "",
+					url = "",
+					des = "",
+					imgurl = "";
+
+				var str, i;
+
+				for (var i in myObj.articles) {
+					if (i <= 3) {
+					url = myObj.articles[i].url;
+					ttl = myObj.articles[i].title;
+					des = myObj.articles[i].description;
+					imgurl = myObj.articles[i].urlToImage;
+
+					// str = '<div class="col-lg-3 col-md-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl + '" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url + '" target="_blank">Gadgets</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 24, 2020</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p>'+ des +'</p></div></div></div>'
+					str ='<div class="col-lg-6 col-sm-6"><div class="choice_item small"><img class="img-fluid" src="'+ imgurl +'" alt=""><div class="choice_text"><a href="' + url + '"><h4>'+ ttl +'</h4></a><div class="date"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div></div></div></div>'
+					document.getElementById("first").innerHTML += str;
+					}
+					else if(i <= 5){
+						url1 = myObj.articles[i].url;
+					ttl1 = myObj.articles[i].title;
+					des1 = myObj.articles[i].description;
+					imgurl1 = myObj.articles[i].urlToImage;
+
+					str1 ='<div class="choice_item"><img class="img-fluid" src="'+ imgurl1 +'" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url1 +'">Sceince</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url1 +'"><h4>'+ ttl1 +'</h4></a><p class="text1">'+ des1 +'</p></div></div></div>'
+					document.getElementById("seco").innerHTML +=str1;
+
+					}
+					
+				}
+				//document.getElementById("title").innerHTML = ttl;
+				// document.getElementById("description").innerHTML = des;
+				// document.getElementById("author").innerHTML = auth;
+			}
+		};
+		xmlhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=89dc14a0f40f4974856a11e1b6fb2575", true);
+		xmlhttp.send();
+
+	}
+
+			verge();
+					</script>
+					</div>
+								
+					   
+				</div>
+				</div>
+		
+				<div class="wedding_megazin mt-100">
+					<div class="main_title2">
+						<h2>Technology</h2>
+					</div>
+					<div class="row" id="flip1">
+ <!-- ttl 
+ url 
+ des 
+ imgurl -->
+
+ <script>
+	function belo() {
+
+
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var myObj = JSON.parse(this.responseText);
+
+				var ttl = "",
+					url = "",
+					des = "",
+					imgurl = "";
+
+				var str, i;
+
+				for (var i in myObj.articles) {
+					if (i <= 1) {
+					url = myObj.articles[i].url;
+					ttl = myObj.articles[i].title;
+					des = myObj.articles[i].description;
+					imgurl = myObj.articles[i].urlToImage;
+
+					str = '<div class="col-sm-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl +'" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url +'">Technology</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div></div>'
+					
+
+					document.getElementById("flip1").innerHTML += str;
+
+					}
+				// else if(i < 6){
+				// 	url1 = myObj.articles[i].url;
+				// 	ttl1 = myObj.articles[i].title;
+				// 	des1 = myObj.articles[i].description;
+				// 	imgurl1 = myObj.articles[i].urlToImage;
+
+				// 	str1='<div class="col-lg-3 col-sm-6"><div class="choice_item small"><img class="img-fluid" src="'+ imgurl1 +'" alt=""><div class="choice_text"><a href="'+ url1 +'"><h4>'+ ttl1 +'</h4></a><div class="date"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>March 14, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div></div></div></div>'
+
+				// 	document.getElementById("flip1").innerHTML += str1;
+					
+				// }
+				}
+
+			}
+		};
+		xmlhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=89dc14a0f40f4974856a11e1b6fb2575", true);
+		xmlhttp.send();
+
+	}
+	belo();
+</script>
+
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="right_sidebar">
+					<aside class="r_widgets news_widgets">
+						<div class="main_title2">
+							<h2>Business News</h2>
+						</div>
+						<div id="flow1"></div>
+						<div class="choice_item">
+							<script>
+								function owl1() {
+									var xmlhttp = new XMLHttpRequest();
+									xmlhttp.onreadystatechange = function() {
+										if (this.readyState == 4 && this.status == 200) {
+											var myObj = JSON.parse(this.responseText);
+							
+											var ttl = "",
+												url = "",
+												des = "",
+												imgurl = "";
+							
+											var str, i;
+											for (var i in myObj.articles) {
+												if (i <= 3) {
+												url = myObj.articles[i].url;
+												ttl = myObj.articles[i].title;
+												des = myObj.articles[i].description;
+												imgurl = myObj.articles[i].urlToImage;
+							
+												str = '<img class="img-fluid" src="'+ imgurl +'" alt=""><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url +'">Business</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div>'								
+												document.getElementById("flow1").innerHTML += str;
+												}
+											}
+										}
+									};
+									xmlhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=89dc14a0f40f4974856a11e1b6fb2575", true);
+									xmlhttp.send();
+
+								}
+								owl1();
+							</script>
+
+					<aside class="r_widgets add_widgets text-center">
+						<img class="img-fluid" src="img/add-1.jpg" alt="">
+					</aside>
+					<aside class="r_widgets social_widgets">
+						<div class="main_title2">
+							<h2>Social Networks</h2>
+						</div>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-facebook"></i> 983Likes <span>Like our page</span></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i> 983Followers <span>Follow Us</span></a></li>
+							<li><a href="#"><i class="fa fa-youtube-play"></i> 9835Subscriber <span>Subscribe</span></a></li>
+							<li><a href="#"><i class="fa fa-vimeo"></i> 59874Subscriber <span>Subscribe</span></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"></i> 36958Followers <span>Follow Us</span></a></li>
+							<li><a href="#"><i class="fa fa-rss"></i>RSS Subscribe <span>Subscribe</span></a></li>
+						</ul>
+					</aside>
+					<aside class="r_widgets newsleter_widgets">
+						<div class="main_title2">
+							<h2>Newsletter</h2>
+						</div>
+						<div class="nsl_inner">
+							<i class="fa fa-envelope"></i>
+							<h4>Subscribe to our Newsletter</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua adipisicing</p>
+							<div class="form-group d-flex flex-row">
+								<div class="input-group">
+									<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter your email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+								</div>
+								<a href="#" class="bbtns">Subcribe</a>
+							</div>	
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+<!--================End News Area =================-->
+
+
+<!--- Technology --->
+
+<section class="choice_area p_100">
+	<div class="container">
+		<div class="main_title2">
+			<h2>Entertainment</h2>
+			</div>
+			<div id="forth" class="row choice_inner">
+				<script>
+					function nextweb() {
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function() {
+							if (this.readyState == 4 && this.status == 200) {
+								var myObj = JSON.parse(this.responseText);
+			
+								var ttl = "",
+									url = "",
+									des = "",
+									imgurl = "";
+			
+								var str, i;
+			
+								for (var i in myObj.articles) {
+									if (i <= 3) {
+									url = myObj.articles[i].url;
+									ttl = myObj.articles[i].title;
+									des = myObj.articles[i].description;
+									imgurl = myObj.articles[i].urlToImage;
+			
+									str = '<div class="col-lg-3 col-md-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl + '" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url + '" target="_blank">Entertainment</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2020</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div></div>'
+
+									document.getElementById("forth").innerHTML += str;
+			
+									}
+			
+								}
+			
+							}
+						};
+						xmlhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=89dc14a0f40f4974856a11e1b6fb2575", true);
+						xmlhttp.send();
+			
+					}
+			
+					nextweb();
+				</script>
+		</div>
+		
+	</div>
+	</div>
+
+   <!--================Product List Area =================-->
+   <section class="product_list_area p_100">
+	<div class="container">
+		<div class="row product_list_inner">
+			<div class="col-lg-4">
+				<div class="main_title2">
+					<h2>Hindustan Times</h2>
+				</div>
+				<div class="product_list" id="kiog">
+
+					<script>
+						function nextweb() {
+							var xmlhttp = new XMLHttpRequest();
+							xmlhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+									var myObj = JSON.parse(this.responseText);
+				
+									var ttl = "",
+										url = "",
+										des = "",
+										imgurl = "";
+				
+									var str, i;
+				
+									for (var i in myObj.articles) {
+										if (i <= 3) {
+										url = myObj.articles[i].url;
+										ttl = myObj.articles[i].title;
+										des = myObj.articles[i].description;
+										imgurl = myObj.articles[i].urlToImage;
+				
+										str ='<div class="media"><div class="d-flex"><img class="img-fil" src="'+ imgurl +'" alt=""></div><div class="media-body"><div class="choice_text"><a href="'+ url +'"><h4 class="text1">'+ ttl +'</h4></a><div class="date"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div></div></div></div>'
+
+										document.getElementById("kiog").innerHTML += str;
+				
+										}
+				
+									}
+				
+								}
+							};
+							xmlhttp.open("GET", "http://newsapi.org/v2/everything?domains=hindustantimes.com&apiKey=f069b2caf2d14283a9fefe8dcd7c7bf4", true);
+							xmlhttp.send();
+				
+						}
+				
+						nextweb();
+					</script>
+</div>
+			</div>
+					<!-- <script>
+					async function getIn() {
+						
+						const URL = `http://newsapi.org/v2/everything?domains=wsj.com,nytimes.com&apiKey=f069b2caf2d14283a9fefe8dcd7c7bf4`;
+						try {
+						const fetchResult = fetch(URL)
+						const response = await fetchResult;
+						const jsonData = await response.json();
+						console.log(jsonData);
+
+						var ttl = "",
+						url = "",
+						des = "",
+						imgurl = "";
+
+						var str, i=0;
+						for (var i in jsonData.articles)
+						{
+							if (i <= 3){
+
+						url = jsonData.articles[i].url;
+						ttl = jsonData.articles[i].title;
+						des = jsonData.articles[i].description;
+						imgurl = jsonData.articles[i].urlToImage;
+						// str = '<div class="col-lg-3 col-md-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl + '" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url + '" target="_blank">Gadgets</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 24, 2020</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div></div>'
+						str ='<div class="media"><div class="d-flex"><img class="img-fil" src="'+ imgurl +'" alt=""></div><div class="media-body"><div class="choice_text"><a href="'+ url +'"><h4 class="text1">'+ ttl +'</h4></a><div class="date"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>March 14, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div></div></div></div>'
+
+						document.getElementById("kiog").innerHTML += str;	
+					}
+				}							
+			} catch(e){
+			throw Error(e);
+		}
+	}
+			// getIn();		
+</script> -->
+					
+			<div class="col-lg-4">
+				<div class="main_title2">
+					<h2>India Times</h2>
+				</div>
+				<div class="product_list" id="huy">
+					
+					<script>
+						function ne() {
+							var xmlhttp = new XMLHttpRequest();
+							xmlhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+									var myObj = JSON.parse(this.responseText);
+				
+									var ttl = "",
+										url = "",
+										des = "",
+										imgurl = "";
+				
+									var str, i;
+				
+									for (var i in myObj.articles) {
+										if (i <= 3) {
+										url = myObj.articles[i].url;
+										ttl = myObj.articles[i].title;
+										des = myObj.articles[i].description;
+										imgurl = myObj.articles[i].urlToImage;
+				
+										str ='<div class="media"><div class="d-flex"><img class="img-fil" src="'+ imgurl +'" alt=""></div><div class="media-body"><div class="choice_text"><a href="'+ url +'"><h4 class="text1">'+ ttl +'</h4></a><div class="date"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div></div></div></div>'
+
+										document.getElementById("huy").innerHTML += str;
+				
+									}
+				
+									}
+				
+								}
+							};
+							xmlhttp.open("GET", "http://newsapi.org/v2/everything?domains=indiatimes.com&apiKey=f069b2caf2d14283a9fefe8dcd7c7bf4", true);
+							xmlhttp.send();
+				
+						}
+				
+						ne();
+					</script>
+</div>
+</div>
+					<!-- <script>
+						async function getIn() {
+							
+							const URL = `http://newsapi.org/v2/everything?domains=timesofindia.com&apiKey=f069b2caf2d14283a9fefe8dcd7c7bf4`;
+							try {
+							const fetchResult = fetch(URL)
+							const response = await fetchResult;
+							const jsonData = await response.json();
+							console.log(jsonData);
+	
+							var ttl = "",
+							url = "",
+							des = "",
+							imgurl = "";
+	
+							var str, i=0;
+							for (var i in jsonData.articles)
+							{
+								if (i <= 3){
+	
+							url = jsonData.articles[i].url;
+							ttl = jsonData.articles[i].title;
+							des = jsonData.articles[i].description;
+							imgurl = jsonData.articles[i].urlToImage;
+							// str = '<div class="col-lg-3 col-md-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl + '" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url + '" target="_blank">Gadgets</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 24, 2020</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div></div>'
+							str ='<div class="media"><div class="d-flex"><img class="img-fil" src="'+ imgurl +'" alt=""></div><div class="media-body"><div class="choice_text"><a href="'+ url +'"><h4 class="text1">'+ ttl +'</h4></a><div class="date"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>March 14, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div></div></div></div>'
+	
+							document.getElementById("huy").innerHTML += str;	
+						}
+					}							
+				} catch(e){
+				throw Error(e);
+			}
+		}
+				// getIn();		
+	</script> -->
+					
+			<div class="col-lg-4">
+				<div class="main_title2">
+					<h2>India Today</h2>
+				</div>
+				<div class="product_list" id="nj">
+					
+					<script>
+						function nexk() {
+							var xmlhttp = new XMLHttpRequest();
+							xmlhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+									var myObj = JSON.parse(this.responseText);
+				
+									var ttl = "",
+										url = "",
+										des = "",
+										imgurl = "";
+				
+									var str, i;
+				
+									for (var i in myObj.articles) {
+										if (i <= 3) {
+										url = myObj.articles[i].url;
+										ttl = myObj.articles[i].title;
+										des = myObj.articles[i].description;
+										imgurl = myObj.articles[i].urlToImage;
+				
+										str ='<div class="media"><div class="d-flex"><img class="img-fil" src="'+ imgurl +'" alt=""></div><div class="media-body"><div class="choice_text"><a href="'+ url +'"><h4 class="text1">'+ ttl +'</h4></a><div class="date"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 28, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div></div></div></div>'
+
+										document.getElementById("nj").innerHTML += str;
+				
+										}
+				
+									}
+				
+								}
+							};
+							xmlhttp.open("GET", "http://newsapi.org/v2/everything?domains=indiatoday.in&apiKey=f069b2caf2d14283a9fefe8dcd7c7bf4", true);
+							xmlhttp.send();
+				
+						}
+				
+						nexk();
+					</script>
+
+					<!-- <script>
+						async function getIn() {
+							
+							const URL = `http://newsapi.org/v2/everything?domains=indiatoday.in&apiKey=f069b2caf2d14283a9fefe8dcd7c7bf4`;
+							try {
+							const fetchResult = fetch(URL)
+							const response = await fetchResult;
+							const jsonData = await response.json();
+							console.log(jsonData);
+	
+							var ttl = "",
+							url = "",
+							des = "",
+							imgurl = "";
+	
+							var str, i=0;
+							for (var i in jsonData.articles)
+							{
+								if (i <= 3){
+	
+							url = jsonData.articles[i].url;
+							ttl = jsonData.articles[i].title;
+							des = jsonData.articles[i].description;
+							imgurl = jsonData.articles[i].urlToImage;
+							// str = '<div class="col-lg-3 col-md-6"><div class="choice_item"><img class="img-fluid" src="'+ imgurl + '" alt="" onerror="this.onerror=null;this.src="http://example.com/existent-image.jpg"><div class="choice_text"><div class="date"><a class="gad_btn" href="'+ url + '" target="_blank">Gadgets</a><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Feb 24, 2020</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div><a href="'+ url +'"><h4>'+ ttl +'</h4></a><p class="text1">'+ des +'</p></div></div></div>'
+							str ='<div class="media"><div class="d-flex"><img class="img-fil" src="'+ imgurl +'" alt=""></div><div class="media-body"><div class="choice_text"><a href="'+ url +'"><h4 class="text1">'+ ttl +'</h4></a><div class="date"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>March 14, 2018</a><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a></div></div></div></div>'
+	
+							document.getElementById("nj").innerHTML += str;	
+						}
+					}							
+				} catch(e){
+				throw Error(e);
+			}
+		}
+				// getIn();		
+	</script> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Product List Area =================-->
+
+	<!-- This is Fetch Section-->
+</section>
+<!-- <section id="news" class="top-post-area pt-10">
+</section> -->
+
+<!--- Welcome Section -->
+<div class="container-fluid padding">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h1 class="display-4">Website built</h1>
+		</div>
+		<hr class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, fugit, velit ex porro eaque eos neque, eligendi quibusdam odio numquam quam nulla nisi iusto voluptates esse vero illo iste accusantium?
+	</div>
+</div>
+
+<!--- Three Column Section -->
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<i class="fa fa-code"></i>
+			<h3>HTML5</h3>
+			<p>Built with the latest version of HTML, HTML5.</p>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<i class="fa fa-bold"></i>
+			<h3>BOOTSTRAP</h3>
+			<p>Built with the latest version of BOOTSTRAP,BOOTSTRAP4.</p>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<i class="fa fa-css3"></i>
+			<h3>HTML5</h3>
+			<p>Built with the latest version of CSS, CSS3.</p>
+		</div>
+	</div>
+	<hr class="my-4">
+</div>
+
+<!--- Two Column Section -->
+
+<!--- Two Column Section -->
+<hr class="my-4">
+
+<!--- Connect -->
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-12">
+			<h2>Connect</h2>
+		</div>
+		<div class="col-12 social padding">
+			<a href="#"><i class="fa fa-facebook" ></i></a>
+			<a href="#"><i class="fa fa-twitter" ></i></a>			
+			<a href="#"><i class="fa fa-google-plus-g"></i></a>			
+			<a href="#"><i class="fa fa-instagram" ></i></a>		
+			<a href="#"><i class="fa fa-youtube-play" ></i></a>			
+		</div>
+	</div>
+</div>
+
+<!--- Footer -->
+<footer>
+	<div class="container-fluid padding">
+	<div class="row text-center">
+	<div class="col-md-4">
+		<!-- <img src="img/w3newbie.png"> -->
+		<p id="pd">Newzcaster</p>
+		<hr class="light">
+		<p>2333-2333-2333</p>
+		<p>newzcasters@email.com</p>
+		<p>100 street Name</p>
+		<p>City, State, 00000</p>
+	</div>
+	<!-- <div class="col-md-4"></div> -->
+		<div class="col-lg-4 col-md-6">
+		<div class="f_title">
+			<h3>Our Hours</h3>
+		</div>
+		<!-- <hr class="light">
+		<h5>Our Hours</h5>
+		<hr class="light"> -->
+		<p>Monday: 9am - 5pm</p>
+		<p>Saturday: 10am -4pm</p>
+		<p>Sunday: closed</p>
+	</div>
+	<div class="col-lg-4 col-md-6">
+		<div class="f_title">
+			<h3>Our Service Areas</h3>
+		</div>
+			<!-- <div class="col-md-4">
+				<hr class="light">
+				<h5>Our Service Areas</h5>
+				<hr class="light"> -->
+					<p>City, State, 00000</p>
+					<p>City, State, 00000</p>
+					<p>City, State, 00000</p>
+					<p>City, State, 00000</p>
+				</div>
+				<div class="col-12">
+					<hr class="light-100">
+					<h5 >&copy; Newzcaster.com</h5>
+				</div>
+				</div>
+				</div>
+			</footer>
+			<script src="add.js"></script>
+<script src="app.js"></script>
+<!-- <script src="flow.js"></script> -->
+</body>
+</html>
